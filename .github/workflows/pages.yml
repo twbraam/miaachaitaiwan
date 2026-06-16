@@ -1,40 +1,65 @@
-name: Deploy GitHub Pages
+name: Validate website
 
 on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v6
-        with:
-          enablement: true
+      - name: Check local links and assets
+        shell: python
+        run: |
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
 
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: .
+          root = Path(".")
+          html_files = sorted(root.glob("**/*.html"))
+          missing = []
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+          class ReferenceParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.refs = []
+
+              def handle_starttag(self, tag, attrs):
+                  attr_map = dict(attrs)
+                  if tag in {"a", "link"} and attr_map.get("href"):
+                      self.refs.append(attr_map["href"])
+                  if tag in {"img", "script"} and attr_map.get("src"):
+                      self.refs.append(attr_map["src"])
+
+          for html_file in html_files:
+              parser = ReferenceParser()
+              parser.feed(html_file.read_text(encoding="utf-8"))
+              for ref in parser.refs:
+                  parsed = urlparse(ref)
+                  if parsed.scheme or parsed.netloc or ref.startswith(("#", "mailto:", "tel:")):
+                      continue
+                  local_ref = parsed.path
+                  if not local_ref or local_ref.startswith("#"):
+                      continue
+                  if local_ref.startswith("/"):
+                      candidate = root / local_ref.lstrip("/")
+                  else:
+                      candidate = html_file.parent / local_ref
+                  if local_ref.endswith("/") or candidate.is_dir():
+                      candidate = candidate / "index.html"
+                  if not candidate.exists():
+                      missing.append(f"{html_file}: {ref}")
+
+          if missing:
+              raise SystemExit("Missing local references:\n" + "\n".join(missing))
+
+          print(f"Checked {len(html_files)} HTML files; all local references exist.")

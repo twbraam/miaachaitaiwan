@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
   <url>
     <loc>https://twbraam.github.io/miaachaitaiwan/</loc>
     <lastmod>2026-06-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://twbraam.github.io/miaachaitaiwan/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://twbraam.github.io/miaachaitaiwan/"/>
   </url>
   <url>
     <loc>https://twbraam.github.io/miaachaitaiwan/privacy/</loc>
     <lastmod>2026-06-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://twbraam.github.io/miaachaitaiwan/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://twbraam.github.io/miaachaitaiwan/privacy/"/>
   </url>
   <url>
     <loc>https://twbraam.github.io/miaachaitaiwan/support/</loc>
     <lastmod>2026-06-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://twbraam.github.io/miaachaitaiwan/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://twbraam.github.io/miaachaitaiwan/support/"/>
+  </url>
+  <url>
+    <loc>https://twbraam.github.io/miaachaitaiwan/en/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://twbraam.github.io/miaachaitaiwan/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://twbraam.github.io/miaachaitaiwan/"/>
+  </url>
+  <url>
+    <loc>https://twbraam.github.io/miaachaitaiwan/en/privacy/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://twbraam.github.io/miaachaitaiwan/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://twbraam.github.io/miaachaitaiwan/privacy/"/>
+  </url>
+  <url>
+    <loc>https://twbraam.github.io/miaachaitaiwan/en/support/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://twbraam.github.io/miaachaitaiwan/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://twbraam.github.io/miaachaitaiwan/support/"/>
   </url>
 </urlset>
