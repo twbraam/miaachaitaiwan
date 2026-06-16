@@ -500,19 +500,8 @@ h3 {
 
 .support-media {
   position: relative;
-  min-height: 440px;
-}
-
-.support-product {
-  position: absolute;
-  right: 168px;
-  bottom: 26px;
-  width: 142px;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: center;
 }
 
 .compact-section {
@@ -565,12 +554,7 @@ h3 {
   }
 
   .support-media {
-    min-height: 400px;
     max-width: 380px;
-  }
-
-  .support-product {
-    right: 92px;
   }
 
   .feature-grid,
