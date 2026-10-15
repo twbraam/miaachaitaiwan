@@ -66,14 +66,14 @@
       <section class="legal-section">
         <h2>儲存在裝置上的資訊</h2>
         <p>
-          App 會儲存購物體驗所需的本機資料，例如收藏作物、隱藏項目、顯示設定與已下載的市場資料。這些本機資料會透過 iOS 的 App 儲存 API，例如 SwiftData 與 UserDefaults 儲存。
+          App 會儲存購物體驗所需的本機資料，例如收藏項目、隱藏項目、顯示設定與已下載的市場資料。這些本機資料會透過 iOS 的 App 儲存 API，例如 SwiftData 與 UserDefaults 儲存。
         </p>
       </section>
 
       <section class="legal-section">
         <h2>市場資料下載</h2>
         <p>
-          App 會下載公開市場資料檔案，用來顯示目前估價與歷史脈絡。這些下載用於提供 App 內容，不需要你提供身分資料。
+          App 會下載公開蔬果與水產品市場資料檔案，用來顯示目前估價與歷史脈絡。這些下載用於提供 App 內容，不需要你提供身分資料。
         </p>
       </section>
 
@@ -103,7 +103,7 @@
       <section class="legal-section">
         <h2>停用 MCP 使用統計</h2>
         <p>
-          你可以告訴 ChatGPT：「這次使用 Taiwan Market 時，請不要記錄使用統計。」兩個工具都接受 <code>record_usage: false</code>，設定後該次呼叫不會產生我們的自訂統計，仍會正常回傳結果。如果涉及多次呼叫，請要求助理每次都設定此參數。省略參數時，預設會啟用統計。
+          你可以告訴 ChatGPT：「這次使用 Taiwan Market 時，請不要記錄使用統計。」所有工具都接受 <code>record_usage: false</code>，設定後該次呼叫不會產生我們的自訂統計，仍會正常回傳結果。如果涉及多次呼叫，請要求助理每次都設定此參數。省略參數時，預設會啟用統計。
         </p>
         <p>
           此控制需要助理實際傳入參數，只適用於該次呼叫，不會移除先前紀錄，也不會停用 OpenAI 自身的處理或 Cloudflare 的基礎設施彙總指標。這項整合不會新增網站或 iOS App 分析。
