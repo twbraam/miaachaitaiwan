@@ -476,6 +476,10 @@ h3 {
   color: var(--muted);
 }
 
+.legal-section p + p {
+  margin-top: 16px;
+}
+
 .legal-section li + li {
   margin-top: 8px;
 }
@@ -580,6 +584,10 @@ h3 {
 
   .site-nav {
     flex-wrap: wrap;
+  }
+
+  .site-nav a {
+    padding: 9px 8px;
   }
 
   .language-switcher {

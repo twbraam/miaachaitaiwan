@@ -6,7 +6,7 @@
     <title>Support | Mí-á-Chài Taiwan Market</title>
     <meta
       name="description"
-      content="Support information for the Mí-á-Chài Taiwan Market iOS app."
+      content="Support for the Taiwan Market app and MCP integration."
     >
     <link rel="canonical" href="https://twbraam.github.io/miaachaitaiwan/en/support/">
     <link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/support/">
@@ -25,6 +25,7 @@
       <div class="header-actions">
         <nav class="site-nav" aria-label="Main navigation">
           <a href="../privacy/">Privacy</a>
+          <a href="../terms/">Terms</a>
           <a href="./" aria-current="page">Support</a>
         </nav>
         <nav class="language-switcher" aria-label="Language">
@@ -45,7 +46,7 @@
           <h1>Help for Mí-á-Chài Taiwan Market</h1>
           <p class="lede">
             Use this page for App Store support, troubleshooting, and privacy
-            questions for the iOS app.
+            questions for the iOS app and MCP integration.
           </p>
           <a class="primary-action" href="https://github.com/twbraam/miaachaitaiwan/issues/new">
             Open a support request
@@ -90,6 +91,25 @@
         </p>
       </section>
 
+      <section class="section-block compact-section" id="mcp">
+        <div class="section-heading">
+          <p class="eyebrow">Taiwan Market MCP</p>
+          <h2>Help with assistant queries</h2>
+          <p>The MCP integration is being prepared for publication. Its tools can look up produce and seafood estimates directly by name, or browse the catalog. No iOS app installation is needed.</p>
+          <p>For an MCP issue, include the tool name, product name, data date, and a description of the problem. Use the same GitHub support link above; omit conversation text, user identifiers, tokens, and other sensitive information.</p>
+        </div>
+        <div class="feature-grid two-column">
+          <article class="feature-card">
+            <h3>Are the results from today?</h3>
+            <p>Check the data date with each result. “Latest available” means the published market-day window, which may be older than today. Historical and missing prices are shown separately; none confirms stock at a shop.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Can I turn off usage analytics?</h3>
+            <p>Ask ChatGPT: “Use Taiwan Market without recording usage statistics for this request.” The assistant must set <code>record_usage: false</code> on each tool call. This suppresses our custom analytics for those calls. See the <a href="../privacy/">privacy policy</a> for details.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="faq-section" aria-labelledby="faq-heading">
         <div class="section-heading">
           <p class="eyebrow">FAQ</p>
@@ -115,9 +135,8 @@
           <article class="faq-item">
             <h3>Does the app need an account?</h3>
             <p>
-              No. Saved items, basket items, filters, and settings live on your
-              device. Optional bought-price feedback uses a random contributor
-              ID instead of an account login.
+              No. Saved items, filters, and settings live on your device.
+              You can use the app without an account login.
             </p>
           </article>
           <article class="faq-item">
@@ -135,9 +154,11 @@
       <div>
         <strong>明仔載愛呷菜</strong>
         <span>Mí-á-Chài Taiwan Market</span>
+        <small>Made by Thomas Braam</small>
       </div>
       <nav aria-label="Footer navigation">
         <a href="../privacy/">Privacy Policy</a>
+        <a href="../terms/">Terms</a>
         <a href="./">Support</a>
       </nav>
     </footer>

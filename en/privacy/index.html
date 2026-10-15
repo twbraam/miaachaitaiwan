@@ -6,7 +6,7 @@
     <title>Privacy Policy | Mí-á-Chài Taiwan Market</title>
     <meta
       name="description"
-      content="Privacy policy for the Mí-á-Chài Taiwan Market iOS app."
+      content="Privacy policy for the Taiwan Market app, website, and MCP integration."
     >
     <link rel="canonical" href="https://twbraam.github.io/miaachaitaiwan/en/privacy/">
     <link rel="alternate" hreflang="zh-Hant-TW" href="https://twbraam.github.io/miaachaitaiwan/privacy/">
@@ -25,6 +25,7 @@
       <div class="header-actions">
         <nav class="site-nav" aria-label="Main navigation">
           <a href="./" aria-current="page">Privacy</a>
+          <a href="../terms/">Terms</a>
           <a href="../support/">Support</a>
         </nav>
         <nav class="language-switcher" aria-label="Language">
@@ -43,10 +44,10 @@
         <div>
           <p class="eyebrow">Privacy Policy</p>
           <h1>Privacy Policy</h1>
-          <p class="updated">Last updated: June 16, 2026</p>
+          <p class="updated">Last updated: October 15, 2026</p>
           <p class="lede">
             This policy explains how Mí-á-Chài Taiwan Market handles information
-            in the iOS app and on this support website.
+            in the iOS app, on this website, and through the MCP integration. Thomas Braam is the publisher and operator.
           </p>
         </div>
         <img class="page-icon" src="../../assets/app-icon.png" alt="">
@@ -56,10 +57,10 @@
         <h2>Summary</h2>
         <ul>
           <li>The app does not require an account.</li>
+          <li>The MCP integration uses pseudonymous usage analytics as described below. This website and the iOS app have no added usage analytics.</li>
           <li>The app does not use third-party advertising, analytics, or tracking SDKs.</li>
           <li>The app does not request your name, email address, phone number, contacts, photos, or precise location.</li>
-          <li>Saved items, basket items, filters, hidden items, cached market data, and app settings are stored on your device.</li>
-          <li>If you choose to submit bought-price feedback, the app sends the purchase details described below.</li>
+          <li>Saved items, filters, hidden items, cached market data, and app settings are stored on your device.</li>
         </ul>
       </section>
 
@@ -67,9 +68,8 @@
         <h2>Information Stored On Your Device</h2>
         <p>
           The app stores local data needed to run the shopping experience, such
-          as saved crops, basket contents, hidden items, display settings,
-          downloaded market data, pending bought-price submissions, and a random
-          contributor ID. This local data is stored by iOS app storage APIs such
+          as saved crops, hidden items, display settings,
+          and downloaded market data. This local data is stored by iOS app storage APIs such
           as SwiftData and UserDefaults.
         </p>
       </section>
@@ -84,26 +84,35 @@
       </section>
 
       <section class="legal-section">
-        <h2>Optional Bought-Price Feedback</h2>
+        <h2>MCP Request Processing</h2>
         <p>
-          When you mark a basket item as bought and submit what you paid, the
-          app sends a feedback record to improve future price calibration. The
-          current submission includes:
+          The MCP service runs on Cloudflare Workers. It processes the product names and filters sent in a tool call to return public produce and seafood estimates or catalog results. Our service does not need your ChatGPT conversation or account profile. OpenAI may include a user identifier with a call; we do not request your name or email address.
         </p>
-        <ul>
-          <li>a random client submission ID,</li>
-          <li>a random contributor ID stored on your device,</li>
-          <li>the produce item ID,</li>
-          <li>the bought date,</li>
-          <li>the total paid in New Taiwan dollars,</li>
-          <li>the quantity and unit,</li>
-          <li>the calculated NT$/斤 value,</li>
-          <li>the app version, schema version, and server receipt time.</li>
-        </ul>
+      </section>
+
+      <section class="legal-section">
+        <h2>MCP Usage Analytics</h2>
         <p>
-          The bought-price feedback does not include your name, email address,
-          phone number, account login, precise location, photo library, contacts,
-          or advertising identifier.
+          We use Cloudflare Workers Analytics Engine to understand usage, reliability, and product interest. For each validated tool call with analytics enabled, we record the tool, category, success or error outcome, elapsed response time, lookup and match counts, timestamp, and the OpenAI-provided user identifier when available. Calls without a valid identifier remain in usage totals and are counted separately.
+        </p>
+        <p>
+          For price results, we also record each distinct returned catalog product's canonical ID and name once per call. The metric is “product appearances in price results”: a broad search can contribute several products. Catalog browsing does not contribute to this metric.
+        </p>
+        <p>
+          The supplied identifier is stored unchanged and is not rotated monthly. It lets us count distinct supplied IDs and activity across dates without an account profile. These statistics are pseudonymous, not fully anonymous, and distinct IDs are not verified people. A stable hash is used only as the sampling index if the identifier exceeds Cloudflare's index length limit; the stored identifier remains unchanged.
+        </p>
+        <p>
+          Our analytics excludes raw searches, conversation text, IP addresses, account profile details, and other client metadata. We do not persist MCP invocation logs or traces. Cloudflare still processes network requests to operate the service and provides aggregate infrastructure metrics; response times in our analytics are wall time, not CPU usage.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>Opting Out of MCP Analytics</h2>
+        <p>
+          Ask ChatGPT: “Use Taiwan Market without recording usage statistics for this request.” Both tools accept <code>record_usage: false</code>, which suppresses all our custom analytics for that call while still returning results. For several calls, ask the assistant to set it on every call. Analytics is enabled by default when the parameter is omitted.
+        </p>
+        <p>
+          This control depends on the assistant passing the parameter. It applies to that call, not earlier records, and does not disable OpenAI's own processing or Cloudflare's aggregate infrastructure metrics. No website or iOS analytics is added by this integration.
         </p>
       </section>
 
@@ -111,18 +120,14 @@
         <h2>How Information Is Used</h2>
         <p>
           Local app data is used to remember your app preferences and shopping
-          state. Optional bought-price feedback is used to calibrate and audit
-          market price estimates, including filtering out unreliable contributor
-          patterns when needed.
+          state.
         </p>
       </section>
 
       <section class="legal-section">
         <h2>Sharing</h2>
         <p>
-          Bought-price submissions are processed by the app's backend service.
-          Public market-data hosting and bought-price processing currently use
-          Cloudflare infrastructure. This website is hosted by GitHub Pages.
+          Public market-data hosting uses Cloudflare infrastructure. Cloudflare also processes and stores MCP analytics on our behalf. This website is hosted by GitHub Pages. OpenAI processes your use of ChatGPT under its own policies.
           The app does not sell personal information.
         </p>
       </section>
@@ -131,10 +136,13 @@
         <h2>Retention And Deletion</h2>
         <p>
           Data stored on your device can be removed by deleting the app.
-          Bought-price feedback may be retained to improve price estimates and
-          protect the quality of the dataset. You can contact support to ask
-          about a submitted feedback record, but locating a specific record may
-          require enough details to identify it.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>MCP Analytics Retention</h2>
+        <p>
+          Cloudflare Analytics Engine retains events for three months, after which they expire. Private usage reports show aggregates rather than individual identifiers. We do not link the supplied identifier to your iOS app data. To ask about privacy, use the support page; GitHub Issues may be public, so do not post your identifier or other sensitive information.
         </p>
       </section>
 
@@ -149,7 +157,7 @@
       <section class="legal-section">
         <h2>Changes</h2>
         <p>
-          This policy may be updated as the app changes. The date at the top of
+          This policy may be updated as the app, website, or MCP service changes. The date at the top of
           this page shows when the current version was published.
         </p>
       </section>
@@ -167,9 +175,11 @@
       <div>
         <strong>明仔載愛呷菜</strong>
         <span>Mí-á-Chài Taiwan Market</span>
+        <small>Made by Thomas Braam</small>
       </div>
       <nav aria-label="Footer navigation">
         <a href="./">Privacy Policy</a>
+        <a href="../terms/">Terms</a>
         <a href="../support/">Support</a>
       </nav>
     </footer>
